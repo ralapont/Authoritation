@@ -1,7 +1,6 @@
 package com.example.authoritation.security.jwt;
 
 import com.example.authoritation.security.services.UserDetailsServiceImpl;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,8 +22,9 @@ import java.io.IOException;
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
 
-    private JwtUtils jwtUtils;
-    private UserDetailsServiceImpl userDetailsService;
+
+    private final JwtUtils jwtUtils;
+    private final UserDetailsServiceImpl userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

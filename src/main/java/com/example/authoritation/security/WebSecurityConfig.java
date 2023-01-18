@@ -2,6 +2,7 @@ package com.example.authoritation.security;
 
 import com.example.authoritation.security.jwt.AuthEntryPointJwt;
 import com.example.authoritation.security.jwt.AuthTokenFilter;
+import com.example.authoritation.security.jwt.JwtUtils;
 import com.example.authoritation.security.services.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +14,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -30,10 +30,11 @@ public class WebSecurityConfig {
 
     private final UserDetailsServiceImpl userDetailsService;
     private final AuthEntryPointJwt unauthorizedHandler;
+    private final JwtUtils jwtUtils;
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
-        return new AuthTokenFilter();
+        return new AuthTokenFilter(jwtUtils, userDetailsService);
     }
 
     @Bean
