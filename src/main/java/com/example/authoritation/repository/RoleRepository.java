@@ -1,7 +1,7 @@
 package com.example.authoritation.repository;
 
-import com.example.authoritation.entities.ERole;
-import com.example.authoritation.entities.Role;
+import com.example.authoritation.models.ERole;
+import com.example.authoritation.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

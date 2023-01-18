@@ -1,4 +1,4 @@
-package com.example.authoritation.entities;
+package com.example.authoritation.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +23,4 @@ public class Role {
     @Column(length = 20)
     private ERole name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
 }

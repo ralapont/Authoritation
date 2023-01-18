@@ -1,4 +1,4 @@
-package com.example.authoritation.entities;
+package com.example.authoritation.models;
 
 public enum ERole {
     ROLE_USER,

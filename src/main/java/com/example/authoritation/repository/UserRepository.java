@@ -1,6 +1,6 @@
 package com.example.authoritation.repository;
 
-import com.example.authoritation.entities.User;
+import com.example.authoritation.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
